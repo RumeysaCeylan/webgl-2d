@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <title>18291018 Rümeysa Ceylan</title>
+</head>
+<body >
+    <br>
+    
+    <h4>FOR RANDOM COLOR PRESS <i>SPACE</i></h4>
+    <h4>FOR RED COLOR PRESS <i>R</i></h4>
+    <h4>FOR BLUE COLOR PRESS <i>B</i></h4>
+    <h4>FOR GREEN COLOR PRESS <i>G</i></h4>
+      
+          <b>SPEED  </b>0
+          <input id="slide" type="range" min="0" max="100" step="10" value="50" />
+          100
+           <br> <br>
+      <button id="DirectionButton">
+          Change Rotation Direction 
+      </button>
+      <button id="StopButton">
+        Stop / Move 
+    </button>
+<br><br>
+
+    <button id="right">
+      Right
+  </button>
+  <button id="left">
+  Left 
+</button>
+  <button id="up">
+    Up 
+</button>
+
+<button id="down">
+ Down 
+</button>
+    <br><br>
+    <b>Scale X  </b>0.1
+          <input id="scalex" type="range" min="0.1" max="2" step="0.2" value="0.8" />
+          2.0
+          <br><br>
+          <b>Scale Y </b>0.1
+          <input id="scaley" type="range" min="0.1" max="2" step="0.2" value="0.8" />
+          2.0
+ <br><br>
+  
+      </script>
+      
+     
+   
+    <canvas id="gl-canvas" width="520" height="500" ></canvas>
+    
+</body>
+ <script id="vertex-shader" type="x-shader/x-vertex">
+  attribute vec4 vPosition;
+  uniform float theta;
+  uniform vec4 translation;
+  uniform mat4 scale;
+  void main(){
+
+    gl_Position.x =( vPosition.x * cos(theta) - vPosition.y * sin(theta)+translation.x)*scale[0][0];
+        
+    gl_Position.y = (vPosition.x * sin(theta) + vPosition.y * cos(theta)+translation.y)*scale[1][1];
+      
+    gl_Position.z = 0.0 ;
+
+    gl_Position.w = 1.0 ;
+    
+        }
+    </script>
+    <script id="fragment-shader" type="x-shader/x-fragment">
+        precision mediump float;
+        uniform vec4 u_color;
+        void main() {
+            gl_FragColor = u_color;
+        }
+    </script>
+<script src = "../common/initShaders.js"></script>
+
+
+<script src = "../common/MV.js"></script>
+
+
+<script src = "app.js"></script>
+
+<script src = "../common/webgl-utils.js"></script>
+
+</html>
