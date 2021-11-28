@@ -1,2 +1,2 @@
 # webgl_2d
-![caption](glWb/ GIF)
+![caption](glWb.gif/ GIF)
